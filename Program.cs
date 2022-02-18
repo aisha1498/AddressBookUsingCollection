@@ -5,7 +5,8 @@ internal class Program
     {
         Console.WriteLine("Welcome to the Address book system");
         Console.ReadLine();
-        AddressBookUsingCollection.AddressBook.GetPerson();
+
+        AddressBookUsingCollection.AddressBook.GetCustomer();
 
         AddressBookUsingCollection.AddressBook.ListingPeople();
     }
