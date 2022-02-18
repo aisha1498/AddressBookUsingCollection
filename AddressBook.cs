@@ -8,45 +8,74 @@ namespace AddressBookUsingCollection
 {
     internal class AddressBook
     {
-        public static void PersonDetails()
+        public static List<Person> People = new List<Person>();
+        public class Person
         {
-            Console.Write("Enter First Name: ");
-            String firstName = Console.ReadLine();
-
-            Console.Write("Enter Last Name: ");
-            string lastName = Console.ReadLine();
-
-            Console.Write("Enter Address : ");
-            var Addresses = Console.ReadLine();
-
-            Console.Write("Enter City : ");
-            string city = Console.ReadLine();
-
-            Console.Write("Enter State : ");
-            string state = Console.ReadLine();
-
-            Console.Write("Enter ZipCode: ");
-            string zipCode = Console.ReadLine();
-
-            Console.Write("Enter Phone Number: ");
-            string phoneNumber = Console.ReadLine();
-
-            Console.Write("Enter EmailId: ");
-            string Email = Console.ReadLine();
-
-            //Adding fetched details to list
-            List<string> PersonList = new List<string>();
-            PersonList.Add(firstName);
-            PersonList.Add(lastName);
-            PersonList.Add(city);
-            PersonList.Add(state);
-            PersonList.Add(zipCode);
-            PersonList.Add(Email);
-            foreach (string i in PersonList)
-                Console.WriteLine(i);
-            Console.ReadLine();
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string Addressess { get; set; }
+            public string City { get; set; }
+            public string State { get; set; }
+            public string PhoneNumber { get; set; }
+            public string ZipCode { get; set; }
+            public string Email { get; set; }
 
         }
+        public static void GetPerson()
+        {
+            Person person = new Person();
 
+            Console.Write("Enter First Name: ");
+            person.FirstName = Console.ReadLine();
+
+            Console.Write("Enter Last Name: ");
+            person.LastName = Console.ReadLine();
+
+            Console.Write("Enter Address : ");
+            person.Addressess = Console.ReadLine();
+
+            Console.Write("Enter City : ");
+            person.City = Console.ReadLine();
+
+            Console.Write("Enter State : ");
+            person.State = Console.ReadLine();
+
+            Console.Write("Enter ZipCode: ");
+            person.ZipCode = Console.ReadLine();
+            Console.Write("Enter ZipCode: ");
+            person.Email = Console.ReadLine();
+            People.Add(person);
+        }
+        public static void PrintCustomer(Person person)
+        {
+            Console.WriteLine("First Name: " + person.FirstName);
+            Console.WriteLine("Last Name: " + person.LastName);
+            Console.WriteLine("Phone Number: " + person.PhoneNumber);
+            Console.WriteLine("Address : " + person.Addressess);
+            Console.WriteLine("City : " + person.City);
+            Console.WriteLine("State : " + person.State);
+            Console.WriteLine("ZipCode : " + person.ZipCode);
+            Console.WriteLine("Phone Number: " + person.PhoneNumber);
+            Console.WriteLine("EmailId: " + person.Email);
+
+        }
+        public static void ListingPeople()
+        {
+            if (People.Count == 0)
+            {
+                Console.WriteLine("Your address book is empty.");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("Here are the current people in your address book:\n");
+            foreach (var person in People)
+            {
+                PrintCustomer(person);
+            }
+            Console.WriteLine("\nPress any key to continue.");
+            Console.ReadKey();
+        }
     }
 }
+
+
