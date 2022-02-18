@@ -62,7 +62,7 @@ namespace AddressBookUsingCollection
             Console.WriteLine("ZipCode : " + person.ZipCode);
             Console.WriteLine("Phone Number: " + person.PhoneNum);
             Console.WriteLine("Email Id: " + person.EmailId);
-
+            Console.WriteLine("********************************");
         }
         public static void Modify()
         {
@@ -134,6 +134,23 @@ namespace AddressBookUsingCollection
 
             }
         }
+        public static void RemovePeople()
+        {
+            Console.WriteLine("Enter the first name of the person you would like to remove.");
+            string Remove = Console.ReadLine();
+            foreach (var person in People.ToList())
+            {
+                if (person.FirstName.ToUpper() == Remove.ToUpper())
+                {
+                    People.Remove(person);
+                    Console.WriteLine("Contact is deleted.");
+                }
+                else
+                {
+                    Console.WriteLine("Contact is not present.");
+                }
+            }
+        }
 
         public static void ListingPeople()
         {
@@ -151,6 +168,7 @@ namespace AddressBookUsingCollection
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
         }
+
     }
 }
 
